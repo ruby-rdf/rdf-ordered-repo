@@ -1,0 +1,13 @@
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+pkg
+Gemfile.lock
+
+# YARD artifacts
+.yardoc
+doc/
+/.rbx/
+/.byebug_history
