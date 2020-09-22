@@ -1,6 +1,6 @@
 # RDF::OrderedRepo
 
-An implementation of RDF::Repository using native hash structures with insertion-order preserving behavior.
+An order-preserving repository for RDF.rb.
 
 [![Gem Version](https://badge.fury.io/rb/rdf-ordered-repo.png)](https://badge.fury.io/rb/rdf-ordered-repo)
 [![Build Status](https://travis-ci.org/ruby-rdf/rdf-ordered-repo.png?branch=master)](https://travis-ci.org/ruby-rdf/rdf-ordered-repo)
@@ -11,7 +11,7 @@ An in-memory implementation of RDF::Repository using native Ruby Hashes having i
 
 ## Examples
 
-    require 'rdf'
+    require 'rdf/ordered_repo'
     require 'rdf/nquads'
     repo = RDF::OrderedRepo.load("https://ruby-rdf.github.com/rdf/etc/doap.nq")
 
