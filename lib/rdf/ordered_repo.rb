@@ -280,7 +280,7 @@ module RDF
         g = DEFAULT_GRAPH unless supports?(:graph_name)
         g ||= DEFAULT_GRAPH
 
-        os   = data[g][s][p].dup.delete(o)
+        os   = data[g][s][p].dup.delete_if {|k,v| k == o}
         ps   = os.empty? ? data[g][s].dup.delete_if {|k,v| k == p} : data[g][s].merge(p => os)
         ss   = ps.empty? ? data[g].dup.delete_if    {|k,v| k == s} : data[g].merge(s => ps)
         return ss.empty? ? data.dup.delete_if       {|k,v| k == g} : data.merge(g => ss)
