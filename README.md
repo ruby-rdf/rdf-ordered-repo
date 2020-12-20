@@ -2,8 +2,10 @@
 
 An order-preserving repository for RDF.rb.
 
-[![Gem Version](https://badge.fury.io/rb/rdf-ordered-repo.png)](https://badge.fury.io/rb/rdf-ordered-repo)
-[![Build Status](https://travis-ci.org/ruby-rdf/rdf-ordered-repo.png?branch=master)](https://travis-ci.org/ruby-rdf/rdf-ordered-repo)
+[![Gem Version](https://badge.fury.io/rb/rdf-ordered.png)](https://badge.fury.io/rb/rdf-ordered)
+[![Build Status](https://github.com/ruby-rdf/rdf-ordered/workflows/CI/badge.svg?branch=develop)](https://github.com/ruby-rdf/rdf-ordered/actions?query=workflow%3ACI)
+[![Coverage Status](https://coveralls.io/repos/ruby-rdf/rdf-ordered/badge.svg)](https://coveralls.io/github/ruby-rdf/rdf-ordered)
+[![Gitter chat](https://badges.gitter.im/ruby-rdf/rdf.png)](https://gitter.im/ruby-rdf/rdf)
 
 ## Description
 

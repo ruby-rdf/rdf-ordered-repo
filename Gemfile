@@ -12,3 +12,8 @@ gem 'sxp',            github: "dryruby/sxp.rb",           branch: "develop"
 group :debug do
   gem "byebug",     platforms: :mri
 end
+
+group :test do
+  gem 'simplecov',  platforms: :mri
+  gem 'coveralls',  '~> 0.8', platforms: :mri
+end
