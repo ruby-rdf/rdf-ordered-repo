@@ -8,7 +8,7 @@
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 
 <> a doap:Project ;
-  doap:name          "RDF::N3" ;
+  doap:name          "RDF::OrderedRepo" ;
   doap:homepage      <https://github.com/ruby-rdf/rdf-ordered-repo> ;
   doap:license       <https://unlicense.org/1.0/> ;
   doap:shortdesc     "An order-preserving repository for RDF.rb."@en ;
