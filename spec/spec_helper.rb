@@ -1,5 +1,4 @@
 require "bundler/setup"
-require 'rdf/ordered_repo'
 require 'rdf/spec'
 require 'rdf/spec/matchers'
 
@@ -33,3 +32,4 @@ begin
 rescue LoadError => e
   STDERR.puts "Coverage Skipped: #{e.message}"
 end
+require 'rdf/ordered_repo'
