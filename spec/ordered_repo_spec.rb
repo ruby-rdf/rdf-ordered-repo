@@ -9,7 +9,7 @@ describe RDF::OrderedRepo do
 
   it { is_expected.not_to be_durable }
   it { is_expected.to be_supports(:rdfstar)}
-  it { is_expected.not_to be_supports(:snapshots)}
+  it { is_expected.to be_supports(:snapshots)}
 
   it "maintains arbitrary options" do
     repository = described_class.new(foo: :bar)

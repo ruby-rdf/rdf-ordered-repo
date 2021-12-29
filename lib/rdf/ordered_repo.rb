@@ -40,7 +40,7 @@ module RDF
     def supports?(feature)
       case feature.to_sym
       when :rdfstar          then true
-      when :snapshots        then false
+      when :snapshots        then true
       else super
       end
     end
@@ -71,11 +71,24 @@ module RDF
     end
     
     ##
-    # @private
-    # @see RDF::Enumerable#has_graph?      
-    def has_graph?(graph)
-      @data.has_key?(graph)
+    # @overload graph?
+    #   Returns `false` to indicate that this is not a graph.
+    #
+    #   @return [Boolean]
+    # @overload graph?(name)
+    #   Returns `true` if `self` contains the given RDF graph_name.
+    #
+    #   @param  [RDF::Resource, false] graph_name
+    #     Use value `false` to query for the default graph_name
+    #   @return [Boolean]
+    def graph?(*args)
+      case args.length
+      when 0 then false
+      when 1 then @data.key?(args.first)
+      else raise ArgumentError("wrong number of arguments (given #{args.length}, expected 0 or 1)")
+      end
     end
+    alias_method :has_graph?, :graph?
 
     ##
     # @private
@@ -97,11 +110,21 @@ module RDF
     end
 
     ##
-    # @private
-    # @see RDF::Enumerable#has_statement?
-    def has_statement?(statement)
-      has_statement_in?(@data, statement)
+    # @overload statement?
+    #   Returns `false` indicating this is not an RDF::Statemenet.
+    #   @return [Boolean]
+    #   @see RDF::Value#statement?
+    # @overload statement?(statement)
+    #   @private
+    #   @see    RDF::Enumerable#statement?
+    def statement?(*args)
+      case args.length
+      when 0 then false
+      when 1 then args.first && statement_in?(@data, args.first)
+      else raise ArgumentError("wrong number of arguments (given #{args.length}, expected 0 or 1)")
+      end
     end
+    alias_method :has_statement?, :statement?
 
     ##
     # @private
@@ -141,7 +164,18 @@ module RDF
     ##
     # @see RDF::Dataset#isolation_level
     def isolation_level
-      :serializable
+      :snapshot
+    end
+
+    ##
+    # A readable & queryable snapshot of the repository for isolated reads. 
+    # 
+    # @return [Dataset] an immutable Dataset containing a current snapshot of
+    #   the Repository contents.
+    #
+    # @see Mutable#snapshot
+    def snapshot
+      self.class.new(data: @data).freeze
     end
 
     protected
@@ -157,13 +191,14 @@ module RDF
     # @private
     # @see RDF::Queryable#query_pattern
     def query_pattern(pattern, **options, &block)
+      snapshot = @data
       if block_given?
         graph_name  = pattern.graph_name
         subject     = pattern.subject
         predicate   = pattern.predicate
         object      = pattern.object
 
-        cs = @data.has_key?(graph_name) ? { graph_name => @data[graph_name] } : @data
+        cs = snapshot.has_key?(graph_name) ? { graph_name => snapshot[graph_name] } : snapshot
 
         cs.each do |c, ss|
           next unless graph_name.nil? ||
@@ -221,7 +256,7 @@ module RDF
     # @private
     # @see RDF::Mutable#clear
     def clear_statements
-      @data = @data.clear
+      @data = @data.dup.clear
     end
 
     ##
@@ -242,16 +277,17 @@ module RDF
 
     ##
     # @private
-    # @see #has_statement
-    def has_statement_in?(data, statement)
+    # @see #statement?
+    def statement_in?(data, statement)
       s, p, o, g = statement.to_quad
       g ||= DEFAULT_GRAPH
 
-      data.has_key?(g) &&
-        data[g].has_key?(s) &&
-        data[g][s].has_key?(p) &&
-        data[g][s][p].has_key?(o)
+      data.key?(g) &&
+        data[g].key?(s) &&
+        data[g][s].key?(p) &&
+        data[g][s][p].key?(o)
     end
+    alias_method :has_statement_in?, :statement_in?
 
     ##
     # @private
@@ -259,7 +295,7 @@ module RDF
     def insert_to(data, statement)
       raise ArgumentError, "Statement #{statement.inspect} is incomplete" if statement.incomplete?
 
-      unless has_statement_in?(data, statement)
+      unless statement_in?(data, statement)
         s, p, o, c = statement.to_quad
         c ||= DEFAULT_GRAPH
 
