@@ -3,7 +3,9 @@
 An order-preserving repository for RDF.rb.
 
 [![Gem Version](https://badge.fury.io/rb/rdf-ordered-repo.png)](https://badge.fury.io/rb/rdf-ordered-repo)
-[![Build Status](https://travis-ci.org/ruby-rdf/rdf-ordered-repo.png?branch=master)](https://travis-ci.org/ruby-rdf/rdf-ordered-repo)
+[![Build Status](https://github.com/ruby-rdf/rdf-ordered-repo/workflows/CI/badge.svg?branch=develop)](https://github.com/ruby-rdf/rdf-ordered-repo/actions?query=workflow%3ACI)
+[![Coverage Status](https://coveralls.io/repos/ruby-rdf/rdf-ordered-repo/badge.svg?branch=develop)](https://coveralls.io/github/ruby-rdf/rdf-ordered-repo?branch=develop)
+[![Gitter chat](https://badges.gitter.im/ruby-rdf/rdf.png)](https://gitter.im/ruby-rdf/rdf)
 
 ## Description
 
@@ -17,8 +19,8 @@ An in-memory implementation of RDF::Repository using native Ruby Hashes having i
 
 ## Dependencies
 
-* [Ruby](https://ruby-lang.org/) (>= 2.4)
-* [RDF.rb][] (~> 3.1)
+* [Ruby](https://ruby-lang.org/) (>= 2.6)
+* [RDF.rb][] (~> 3.2)
 
 ## Mailing List
 
