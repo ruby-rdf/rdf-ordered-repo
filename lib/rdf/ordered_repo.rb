@@ -256,7 +256,7 @@ module RDF
     # @private
     # @see RDF::Mutable#clear
     def clear_statements
-      @data = @data.dup.clear
+      @data = @data.class.new
     end
 
     ##
