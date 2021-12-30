@@ -17,13 +17,14 @@ module RDF
     #   only the default graph is supported.
     # @option options [Boolean]   :with_validity (true)
     #   Indicates that the repository supports named validation.
-    # @option options [Boolean]   :transaction_class (DEFAULT_TX_CLASS)
+    # @option options [Boolean]   :transaction_class (RDF::Transaction::SerializedTransaction)
     #   Specifies the RDF::Transaction implementation to use in this Repository.
     # @yield  [repository]
     # @yieldparam [Repository] repository
-    def initialize(uri: nil, title: nil, **options, &block)
+    def initialize(uri: nil, title: nil, transaction_class: RDF::Transaction::SerializedTransaction, **options, &block)
       @data = options.delete(:data) || {}
       super do
+        @tx_class = transaction_class
         if block_given?
           case block.arity
             when 1 then block.call(self)
