@@ -10,6 +10,13 @@ Gem::Specification.new do |gem|
   gem.license            = 'Unlicense'
   gem.summary            = 'An order-preserving repository for RDF.rb.'
   gem.description        = %(An in-memory implementation of RDF::Repository using native Ruby Hashes having insert-order preserving properties.)
+  gem.metadata           = {
+    "documentation_uri" => "https://ruby-rdf.github.io/rdf-ordered-repo",
+    "bug_tracker_uri"   => "https://github.com/ruby-rdf/rdf-ordered-repo/issues",
+    "homepage_uri"      => "https://github.com/ruby-rdf/rdf-ordered-repo",
+    "mailing_list_uri"  => "https://lists.w3.org/Archives/Public/public-rdf-ruby/",
+    "source_code_uri"   => "https://github.com/ruby-rdf/rdf-ordered-repo",
+  }
 
   gem.authors            = ['Gregg Kellogg']
   gem.email              = 'public-rdf-ruby@w3.org'
