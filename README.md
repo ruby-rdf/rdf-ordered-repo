@@ -19,8 +19,8 @@ An in-memory implementation of RDF::Repository using native Ruby Hashes having i
 
 ## Dependencies
 
-* [Ruby](https://ruby-lang.org/) (>= 2.6)
-* [RDF.rb][] (~> 3.2)
+* [Ruby](https://ruby-lang.org/) (>= 3.0)
+* [RDF.rb][] (~> 3.3)
 
 ## Mailing List
 
