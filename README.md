@@ -2,7 +2,7 @@
 
 An order-preserving repository for RDF.rb.
 
-[![Gem Version](https://badge.fury.io/rb/rdf-ordered-repo.png)](https://badge.fury.io/rb/rdf-ordered-repo)
+[![Gem Version](https://badge.fury.io/rb/rdf-ordered-repo.svg)](https://badge.fury.io/rb/rdf-ordered-repo)
 [![Build Status](https://github.com/ruby-rdf/rdf-ordered-repo/workflows/CI/badge.svg?branch=develop)](https://github.com/ruby-rdf/rdf-ordered-repo/actions?query=workflow%3ACI)
 [![Coverage Status](https://coveralls.io/repos/ruby-rdf/rdf-ordered-repo/badge.svg?branch=develop)](https://coveralls.io/github/ruby-rdf/rdf-ordered-repo?branch=develop)
 [![Gitter chat](https://badges.gitter.im/ruby-rdf/rdf.png)](https://gitter.im/ruby-rdf/rdf)
@@ -15,12 +15,12 @@ An in-memory implementation of RDF::Repository using native Ruby Hashes having i
 
     require 'rdf/ordered_repo'
     require 'rdf/nquads'
-    repo = RDF::OrderedRepo.load("https://ruby-rdf.github.com/rdf/etc/doap.nq")
+    repo = RDF::OrderedRepo.load("https://ruby-rdf.github.io/rdf/etc/doap.nq")
 
 ## Dependencies
 
-* [Ruby](https://ruby-lang.org/) (>= 2.6)
-* [RDF.rb][] (~> 3.2)
+* [Ruby](https://ruby-lang.org/) (>= 3.0)
+* [RDF.rb][] (~> 3.3)
 
 ## Mailing List
 
@@ -55,7 +55,7 @@ This repository uses [Git Flow](https://github.com/nvie/gitflow) to mange develo
 This is free and unencumbered public domain software. For more information,
 see <https://unlicense.org/> or the accompanying {file:UNLICENSE} file.
 
-[RDF.rb]:           https://ruby-rdf.github.com/
+[RDF.rb]:           https://ruby-rdf.github.io/
 [YARD]:             https://yardoc.org/
 [YARD-GS]:          https://rubydoc.info/docs/yard/file/docs/GettingStarted.md
 [PDD]:              https://unlicense.org/#unlicensing-contributions
