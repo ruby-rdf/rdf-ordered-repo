@@ -17,6 +17,10 @@ An in-memory implementation of RDF::Repository using native Ruby Hashes having i
     require 'rdf/nquads'
     repo = RDF::OrderedRepo.load("https://ruby-rdf.github.io/rdf/etc/doap.nq")
 
+## Change Log
+
+See [Release Notes on GitHub](https://github.com/ruby-rdf/rdf-ordered-repo/releases)
+
 ## Dependencies
 
 * [Ruby](https://ruby-lang.org/) (>= 3.0)
